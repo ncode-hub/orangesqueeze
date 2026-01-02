@@ -2,8 +2,20 @@
 
 import Link from "next/link";
 import { Droplets, Clock, TrendingUp, Zap, Shield, Gift } from "lucide-react";
+import { usePoolStats } from "@/hooks/useStaking";
 
 export default function Home() {
+  const poolStats = usePoolStats();
+  
+  // Format total staked for display
+  const formatTotalStaked = (value: string) => {
+    const num = parseFloat(value.replace(/,/g, ""));
+    if (isNaN(num)) return "0";
+    if (num >= 1000000) return (num / 1000000).toFixed(2) + "M";
+    if (num >= 1000) return (num / 1000).toFixed(1) + "K";
+    return num.toFixed(0);
+  };
+
   return (
     <div className="pt-16">
       {/* Hero Section */}
@@ -37,15 +49,21 @@ export default function Home() {
           {/* Stats */}
           <div className="mt-16 grid grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-orange-400">$1.2M+</div>
+              <div className="text-3xl md:text-4xl font-bold text-orange-400">
+                {poolStats.isLoading ? "..." : formatTotalStaked(poolStats.totalStaked)}
+              </div>
               <div className="text-gray-400">Total Squeezed</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-orange-400">12.5%</div>
-              <div className="text-gray-400">Current APY</div>
+              <div className="text-3xl md:text-4xl font-bold text-orange-400">
+                {poolStats.isLoading ? "..." : poolStats.rewardVaultBalance + " SOL"}
+              </div>
+              <div className="text-gray-400">Reward Pool</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-orange-400">2,500+</div>
+              <div className="text-3xl md:text-4xl font-bold text-orange-400">
+                {poolStats.isLoading ? "..." : poolStats.totalStakers}
+              </div>
               <div className="text-gray-400">Growers</div>
             </div>
           </div>
