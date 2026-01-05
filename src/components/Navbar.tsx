@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useWallet, WalletMultiButton } from "@/contexts/WalletContext";
-import { Trees, BarChart3, Users, HelpCircle } from "lucide-react";
+import { Trees, BarChart3, Users, HelpCircle, ArrowRightLeft } from "lucide-react";
 
 export default function Navbar() {
   const { connected } = useWallet();
   const pathname = usePathname();
 
   const navItems = [
+    { href: "/swap", label: "Swap", icon: ArrowRightLeft },
     { href: "/grove", label: "Grove", icon: Trees },
     { href: "/statistics", label: "Statistics", icon: BarChart3 },
     { href: "/community", label: "Community", icon: Users },
