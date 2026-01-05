@@ -110,7 +110,7 @@ export default function SwapPage() {
       
       showToast(
         "success",
-        "Swap Successful! ??",
+        "Swap Successful! 🍊",
         `You swapped ${solAmount} SOL for ${orangeAmount} ORANGE`,
         signature
       );
@@ -134,7 +134,7 @@ export default function SwapPage() {
     return (
       <div className="pt-24 min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="text-6xl mb-6">??</div>
+          <div className="text-6xl mb-6">🍊</div>
           <h1 className="text-3xl font-bold mb-4">Connect Your Wallet</h1>
           <p className="text-gray-400 mb-8">
             Connect your wallet to swap SOL for $ORANGE
@@ -227,7 +227,7 @@ export default function SwapPage() {
                   )}
                 </div>
                 <div className="flex items-center gap-2 px-3 py-2 bg-orange-500/20 rounded-lg">
-                  <span className="text-2xl">??</span>
+                  <span className="text-2xl">🍊</span>
                   <span className="font-bold">ORANGE</span>
                 </div>
               </div>
@@ -270,7 +270,7 @@ export default function SwapPage() {
                 Swapping...
               </>
             ) : (
-              "Swap Now ??"
+              "Swap Now 🍊"
             )}
           </button>
           
@@ -291,7 +291,7 @@ export default function SwapPage() {
         
         <div className="mt-6 bg-black/40 rounded-2xl p-6 orange-border">
           <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-            <span>??</span>
+            <span>🍊</span>
             What to do next?
           </h3>
           <div className="space-y-3">
