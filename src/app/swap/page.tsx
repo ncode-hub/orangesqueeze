@@ -127,7 +127,7 @@ export default function SwapPage() {
   };
   
   const handleMaxSol = () => {
-    showToast("info", "Max SOL", "Please enter your SOL amount manually");
+    showToast("warning", "Max SOL", "Please enter your SOL amount manually");
   };
   
   if (!connected) {
